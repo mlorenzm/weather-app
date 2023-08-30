@@ -1,5 +1,5 @@
 const apiKey = "c7cb5cbe6852930a001d50dd8e3d50b1";
-let city;
+
 async function getWeather(city) {
   const response = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=en&appid=${apiKey}&units=metric`,
@@ -22,20 +22,4 @@ function processData(data) {
   };
 }
 
-function getNewCity() {
-  const formBox = document.getElementById("textbox");
-  if (formBox.value) {
-    return formBox.value;
-  }
-}
-
-function changeWeather() {
-  let form = document.getElementById("form");
-  form.addEventListener("submit", function () {
-    event.preventDefault();
-    city = getNewCity();
-    console.log(city); //Esto posiblemente haya que cambiarlo de sitio, necesito refrescar tanto el nombre d ela ciudad como el tiempo cuando adquiero una ciudad nueva
-  });
-}
-
-export { getWeather, changeWeather };
+export { getWeather };
