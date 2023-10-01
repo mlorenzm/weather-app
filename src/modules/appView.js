@@ -19,6 +19,7 @@ function updateWeatherView(data) {
   const div = document.createElement("div");
   div.textContent = text;
   console.log(div);
+  main.removeChild(main.lastChild);
   main.appendChild(div);
 }
 
