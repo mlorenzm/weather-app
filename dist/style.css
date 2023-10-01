@@ -32,6 +32,15 @@ main {
   left: 0;
 }
 
+#textID {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+}
+#textID #city-name {
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
