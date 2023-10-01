@@ -5,10 +5,7 @@ async function fetchWeather(city) {
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=en&appid=${apiKey}&units=metric`,
     { mode: "cors" }
   );
-  if (response.status !== 200) {
-    // call View function to 404
-    //console.log("404");
-  } else {
+  try {
     const data = await response.json();
     const obj = {
       cityName: data.name,
@@ -17,11 +14,14 @@ async function fetchWeather(city) {
       weather: data.weather[0].description,
     };
     return obj;
+  } catch (error) {
+    throw error;
   }
 }
 
 async function getWeather(city) {
   const res = await fetchWeather(city);
+  console.log(res);
   return res;
 }
 
