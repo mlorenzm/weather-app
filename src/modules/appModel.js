@@ -15,13 +15,12 @@ async function fetchWeather(city) {
     };
     return obj;
   } catch (error) {
-    throw error;
+    alert("Invalid city");
   }
 }
 
 async function getWeather(city) {
   const res = await fetchWeather(city);
-  console.log(res);
   return res;
 }
 
