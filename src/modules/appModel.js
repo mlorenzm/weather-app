@@ -2,7 +2,7 @@ const apiKey = "c7cb5cbe6852930a001d50dd8e3d50b1";
 
 async function fetchWeather(city) {
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=es&appid=${apiKey}&units=metric`,
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=en&appid=${apiKey}&units=metric`,
     { mode: "cors" }
   );
   if (response.status !== 200) {
@@ -10,7 +10,6 @@ async function fetchWeather(city) {
     //console.log("404");
   } else {
     const data = await response.json();
-    console.log(data);
     const obj = {
       cityName: data.name,
       country: data.sys.country,
@@ -23,7 +22,6 @@ async function fetchWeather(city) {
 
 async function getWeather(city) {
   const res = await fetchWeather(city);
-  console.log(res);
   return res;
 }
 

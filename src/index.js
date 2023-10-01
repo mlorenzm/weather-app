@@ -1,10 +1,18 @@
 import "./style.scss";
 import { getWeather } from "./modules/appModel.js";
-import { getNewCity } from "./modules/appView";
+import { updateWeatherView } from "./modules/appView";
 
 // https://api.openweathermap.org/data/2.5/weather?q=London&lang=sp&appid=c7cb5cbe6852930a001d50dd8e3d50b1
+
 function initApp() {
-  getWeather("San Francisco");
+  const formBox = document.getElementById("textbox");
+  let form = document.getElementById("form");
+  form.addEventListener("submit", async () => {
+    event.preventDefault();
+    console.log("submit");
+    const weatherData = await getWeather(formBox.value);
+    updateWeatherView(weatherData);
+  });
 }
 
 initApp();
